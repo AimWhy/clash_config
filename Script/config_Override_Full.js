@@ -420,6 +420,8 @@ const overwriteDns = (config, ctx) => {
   'enable': true,
   'cache-algorithm': 'arc',
   'ipv6': false,
+  'use-hosts': true,
+  'use-system-hosts': false,
   'enhanced-mode': 'fake-ip',
   'fake-ip-ttl': 1,
   'fake-ip-range': '198.18.0.0/16',
@@ -480,7 +482,7 @@ const overwriteRules = (config) => {
   config['rules'] = [
     // 私有网络直连
     'RULE-SET,private,DIRECT',
-
+    'RULE-SET,private_ip,DIRECT,no-resolve',
     // 国内直连
     'RULE-SET,geolocation-cn,DIRECT',
     'RULE-SET,games_cn,DIRECT', // 已包含 steam 下载域名
@@ -531,7 +533,7 @@ const overwriteRules = (config) => {
     // 兜底规则
     'RULE-SET,geolocation-!cn,PROXY',
     'RULE-SET,cn_ip,DIRECT',
-    'RULE-SET,private_ip,DIRECT,no-resolve',
+    
     'MATCH,PROXY',
   ];
 };

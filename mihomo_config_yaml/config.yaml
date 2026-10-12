@@ -94,6 +94,8 @@ dns:
   enable: true
   cache-algorithm: arc
   ipv6: false
+  use-hosts: true
+  use-system-hosts: false
   enhanced-mode: fake-ip
   fake-ip-ttl: 1
   fake-ip-range: 198.18.0.0/16
